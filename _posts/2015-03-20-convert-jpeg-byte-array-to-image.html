@@ -1,0 +1,14 @@
+---
+layout: post
+title: Convert JPEG byte array to image
+date: '2015-03-20T14:53:00.000-07:00'
+author: Yicheng Zhang
+tags:
+- JPEG
+- Android
+modified_time: '2015-03-20T14:54:20.218-07:00'
+blogger_id: tag:blogger.com,1999:blog-4168525616395635351.post-6397321856082168503
+blogger_orig_url: http://blog.zyceeit.com/2015/03/convert-jpeg-byte-array-to-image.html
+---
+
+<span style="font-family: Arial, Helvetica, sans-serif;">This bug takes me one week to fix.&nbsp;</span><br /><span style="font-family: Arial, Helvetica, sans-serif;">Usually when you want to read the image stream via http, you can use the Java self contained ImageIO class to do it. I tried to find the similar class used in Android, which is called the BitmapFactory, and there is a problem. I got a byte array of size over 30000, and when I tried to use BitmapFactory.decodeByteArray(), it failed. But it worked when using ImageIO.read(byteArrayStream). Strangely enough, it takes me four days to figure out what's going wrong. By figuring out, I mean staring at the monitor and falling asleep. On Friday, I thought it might be a good idea to take a look at what is the difference between the original byte array and the byte array after the processing of ImageIO. Eureka. It turned out that the first 22 bytes are different. The JPEG has standard byte array marker, the first two bytes are 0xff and 0xd8. Somewhere after 20 bytes there are two bytes 0xff and 0xdb. The 18 bytes between 0xd8 and 0xff are the difference. The 18 bytes in the processed byte array are: 0xff, 0xff, 0x00, 0x10, 0x4a, 0x46, 0x49, 0x46, 0x00, 0x01, 0x02, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00. Those bytes have replaced the original bytes between two markers. So I changed the bytes between 0xd8 and 0xff in the original byte array. And Eureka. Actually when I deleted the bytes between 0xd8 and 0xff in the original byte array, it still worked. I guess those 18 bytes must be some garbage bytes added into the array when the bytes are generated but I don't know exactly the reason why.&nbsp;ImageIO seems to be able to dismiss and correct the garbage data in the byte array but not the BitmapFactory. This is misleading because if you think ImageIO works you will&nbsp;probably&nbsp;think BitmapFactory will work too. But actually it is not and it hurts my feeling. So never underestimate the difficulty of small or trivial task. Detail is your best teacher.&nbsp;</span><br /><span style="font-family: Arial, Helvetica, sans-serif;">I feel better when this one is solved after being under the weather for the whole week. Catching cold is not something serious, but sometimes can be tough to get away.&nbsp;</span>

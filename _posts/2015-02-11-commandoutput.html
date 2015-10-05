@@ -1,0 +1,15 @@
+---
+layout: post
+title: FTP send command bug on Android
+date: '2015-02-11T14:06:00.002-08:00'
+author: Yicheng Zhang
+tags:
+- FTP
+- Socket
+- Android
+modified_time: '2015-02-11T14:44:03.255-08:00'
+blogger_id: tag:blogger.com,1999:blog-4168525616395635351.post-8451985904715147778
+blogger_orig_url: http://blog.zyceeit.com/2015/02/commandoutput.html
+---
+
+<span style="font-family: Arial, Helvetica, sans-serif;">Recently I met with a bug when trying to communicate with another device on Android using FTP. When I tried to send the FTP command PORT to the device on Android phone it simply gave me back NoResponseException. The FTP command is sent using Socket and it is simple three lines of code.&nbsp;</span><br /><pre class="brush:java">                    commandOutput.write("port xxx,xxx,xxx,xxx,xxx,xxx");                <br />                    commandOutput.newLine();<br />                    commandOutput.flush();<br /><br /></pre><span style="font-family: Arial, Helvetica, sans-serif;">commandOutput is the BufferedWriter object, it simply writes the command code to the socket and then jumps to the new line. It seems to be right but it just doesn't work. Somehow it worked perfectly when I changed the code to the following:</span><br /><pre class="brush:java">            <br />commandOutput.write("port xxx,xxx,xxx,xxx,xxx,xxx");                <br />commandOutput.write("\r\n");<br />commandOutput.flush();<br /></pre><span style="font-family: Arial, Helvetica, sans-serif;">The only change is the second line, an "\r" is added before "\n" which together seems to have the same function as the mere "\n". The original one works well on the desktop but fails on Android, the new one works well on both so I guess there may be some issues about the use of BufferedWriter which are Android specific. And that one line change saves me out of the trouble of FTP failure on Android which stupefies me for days. Strange indeed.&nbsp;</span>

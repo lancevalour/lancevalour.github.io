@@ -1,0 +1,13 @@
+---
+layout: post
+title: Application cast
+date: '2015-01-30T06:47:00.003-08:00'
+author: Yicheng Zhang
+tags:
+- Android
+modified_time: '2015-01-30T07:26:05.654-08:00'
+blogger_id: tag:blogger.com,1999:blog-4168525616395635351.post-428769926920370174
+blogger_orig_url: http://blog.zyceeit.com/2015/01/application-cast.html
+---
+
+<span style="font-family: Arial, Helvetica, sans-serif;">When I try to use the application singleton class in an Android project, I come across the ClassCastException error. What I want to do is to cast the system application class to my own application class which is made to keep the data consistent. I try to do this:&nbsp;</span><br /><br /><pre class="brush: java">((MyApplication) getApplication()).setMyCurrentObject(myCurrentObject);<br /></pre><span style="font-family: Arial, Helvetica, sans-serif;">Somehow the system doesn't know my own application class and it fails. After some search, it turns out to be that the name of the system application is not defined in the AndroidManifest.xml. So in the manifest file you have to add the value called name in the applicaiton tag and it will be good, like this:</span><br /><span style="font-family: Arial, Helvetica, sans-serif;"><br /></span><pre class="brush: java"> <br />&lt;application android:icon="@drawable/icon" android:label="@string/app_name"<br />    android:name=".MyApplication"&gt;<br /></pre>
