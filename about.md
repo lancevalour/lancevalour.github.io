@@ -4,8 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+I am Yicheng, software engineer at [FARO Technologies](http://www.faro.com). I work mainly on Android and Java. I develop apps and hack phones and tablets.  
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+I graduated from [The Ohio State University](http://www.osu.edu) in Ohio and [Shanghai Jiao Tong University](http://en.sjtu.edu.cn/) in China. 
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I shoot [videos and mash movie clips](https://www.youtube.com/channel/UCBsGyxkyzV9lrBvPGNRrVGQ). I take [photos](https://500px.com/{{ site.500px_username }}) as I go. 
