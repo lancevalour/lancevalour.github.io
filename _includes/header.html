@@ -6,7 +6,7 @@
 
     <nav class="site-nav">
 
-      <div class="trigger">
+     <!--  <div class="trigger">
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
@@ -14,10 +14,16 @@
         {% endfor %}
         
       </div>
+    -->
+    <div class="trigger">
+      <a class="page-link" href="{{site.baseurl}}/about"> <i class="material-icons">info_outline</i></a>
+      <a class="page-link" href="{{site.baseurl}}/search"> <i class="material-icons">search</i></a>
+      
+    </div>
 
 
-    </nav>
+  </nav>
 
-  </div>
+</div>
 
 </header>
