@@ -1,23 +1,109 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAB+UlEQVRoQ+2Z4VHDMAyFJXuBbgBsYDxB2QA2CBMwAmUDNihMUDaADtCcOwEdgQ5gi/NdetejcJavshNyyd84cj49vVhVEUZy4Ug4YAIZmpKTIpMihTLAKi1jzCUiXhR6h5OwRLR3zrmc/Vgg1toFIj7mBD53LRHtQgh3XKDBgsREdDDXzrmvVGIGDRJf3nt/45z7+PcgRHTftu3LGECe2rZdTCDHGejjq3XYn4jkFDHGzJVS85S8mfcfEHGWekbUI6nNcu4bY2Za6xUAsBLjvb9yzu1Se7A+v6kg3PvGGKO1XgKAYT7zutlsGs7aaiBdea445dQdhusQwi3nMIzrq4BYaxtEjEpwL7YSh4DFQay1S0RklUenBOsA/JmRYiC5pgaAvfc+llKyHflN1iIguaYmom0IoeF2ulVASpv6L5OJKlLD1MVBapm6GEhtUxcB6cPU4iB9mVoUpE9Ti4H0beqzQYZi6rNBcpSQOKm53WVW0xgnjVrrT05wIspqvzkxOWtYJzvX3EQUB2nPnI25a0IIa04jyQWpPjI9gIoOH0YzRRkTSO5PVa4FkutESyu2I1rr9+SuBRZIg8yUUq7mnz1FzB6Dxk5XKfVWG0ZUkeOKiUAAkBx1ClbZbnCTRkG4k1CsA7HkC0jFnkCkMikVZ1JEKpNScUajyDdXvz1CzOzYuAAAAABJRU5ErkJggg==" width="50" height="50">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Yicheng Zhang</title>
+		<!-- <link href="css/grayscale.css" rel="stylesheet"> -->
+		<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+		<!-- Custom Theme JavaScript -->
+		<!-- <script src="js/grayscale.js"></script> -->
+		<title><%= title %></title>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+		<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<style>
+			.mdl-layout{
+				background: url('images/background.jpg') center / cover;
+			}
+			
+		</style>
+	</head>
+	<body >
+		<!-- Uses a header that contracts as the page scrolls down. -->
+		<!-- Always shows a header, even in smaller screens. -->
+		
+		<div class="mdl-layout mdl-js-layout">
+			<header class="mdl-layout__header mdl-layout__header--transparent">
+				<div class="mdl-layout-icon"></div>
+				<div class="mdl-layout__header-row">
+					<!-- Title -->
+					<span class="mdl-layout-title">Yicheng Zhang</span>
+					<!-- Add spacer, to align navigation to the right -->
+					<div class="mdl-layout-spacer"></div>
+					<!-- Navigation. We hide it in small screens. -->
+					<nav class="mdl-navigation">
+						
+						
+						<a class="mdl-navigation__link" href="https://github.com/lancevalour">
+						<i class="zmdi zmdi-github zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.instagram.com/lancevalour/">
+						<i class="zmdi zmdi-instagram zmdi-hc-lg"></i></a>
+						<a class="mdl-navigation__link" href="https://500px.com/yichengzhang">
+						<i class="zmdi zmdi-500px zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.youtube.com/channel/UCBsGyxkyzV9lrBvPGNRrVGQ">
+						<i class="zmdi zmdi-youtube-play zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://medium.com/@zhangyicheng1234">
+						<i class="zmdi zmdi-blogger zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.linkedin.com/in/yicheng-zhang-4ab18768">
+						<i class="zmdi zmdi-linkedin zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.facebook.com/profile.php?id=100004224487624">
+						<i class="zmdi zmdi-facebook zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="mailto:{{ site.email }}">
+						<i class="zmdi zmdi-email zmdi-hc-lg"></i></a>
+					</nav>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout__title">Yicheng Zhang</span>
+				<nav class="mdl-navigation">
+					
+						
+						<a class="mdl-navigation__link" href="https://github.com/lancevalour">
+						<i class="zmdi zmdi-github zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.instagram.com/lancevalour/">
+						<i class="zmdi zmdi-instagram zmdi-hc-lg"></i></a>
+						<a class="mdl-navigation__link" href="https://500px.com/yichengzhang">
+						<i class="zmdi zmdi-500px zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.youtube.com/channel/UCBsGyxkyzV9lrBvPGNRrVGQ">
+						<i class="zmdi zmdi-youtube-play zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://medium.com/@zhangyicheng1234">
+						<i class="zmdi zmdi-blogger zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.linkedin.com/in/yicheng-zhang-4ab18768">
+						<i class="zmdi zmdi-linkedin zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="https://www.facebook.com/profile.php?id=100004224487624">
+						<i class="zmdi zmdi-facebook zmdi-hc-lg"></i></a>
+						
+						<a class="mdl-navigation__link" href="mailto:{{ site.email }}">
+						<i class="zmdi zmdi-email zmdi-hc-lg"></i></a>
+				</nav>
+			</div>
+			<main class="mdl-layout__content">
+			<div class="page-content">
+				<!-- Your content goes here --></div>
+				</main>
+			</div>
+			
+		</body>
+	</html>
+	
